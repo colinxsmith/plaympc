@@ -1,10 +1,12 @@
 .App {
-  text-align: center;
+  text-align:center;
 }
 
 .App-logo {
-  height: 90vmin;
+  width: 10%;
   pointer-events: none;
+  background-color: #e8ccd7;
+  border-radius: 20%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -12,10 +14,12 @@
     animation: App-logo-spin infinite 1s linear;
   }
 }
-
+line.tester{
+  stroke:green;
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #e8ccd7;
+  width:100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,6 +37,6 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(400deg);
+    transform: rotate(360deg);
   }
 }
