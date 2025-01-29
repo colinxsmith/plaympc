@@ -1,3 +1,4 @@
+import { PlayN } from './PlayN';
 import './App.css';
 
 export function App() {
@@ -8,11 +9,7 @@ export function App() {
           <img src="http://192.168.0.37:1234/ak.jpg" className="App-logo" alt="logo" ></img>
         </div>
       </header>
-      <svg >
-        <line x1="20px" x2="200px" y1="20px" y2="200px" class="tester">
-          <title>Colin</title>
-        </line>
-      </svg>
+      <PlayN station={4}></PlayN>
     </div>
 
   );
