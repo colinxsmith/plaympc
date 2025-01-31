@@ -9,7 +9,7 @@ export function App() {
           <img src="http://192.168.0.37:1234/ak.jpg" className="App-logo" alt="logo" ></img>
         </div>
       </header>
-      <PlayN station={4}></PlayN>
+      <PlayN station={3}></PlayN>
     </div>
 
   );

@@ -3,10 +3,10 @@
 }
 
 .App-logo {
-  width: 10%;
+  width: 20%;
   pointer-events: none;
   background-color: #e8ccd7;
-  border-radius: 20%;
+  border-radius: 30%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,7 +22,7 @@ line.tester{
   width:100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -37,6 +37,6 @@ line.tester{
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(50deg);
   }
 }
