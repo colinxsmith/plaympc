@@ -1,3 +1,7 @@
 p.backers{
-    text-align:center;
+    text-align: center;
+    text-wrap: auto;
+    width: 75%;
+    color: rgb(194, 15, 59);
+    font-size: xx-large;
 }
