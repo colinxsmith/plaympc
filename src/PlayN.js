@@ -8,7 +8,7 @@ export const PlayN = () => {
       'Access-Control-Expose-Headers': '*',
       'Access-Control-Allow-Origin': '*'
     }
-    const url = `http://192.168.0.37:1310/`;
+    const url = `http://192.168.0.37:1310`;
     fetch(url, {
       mode: 'cors'
     },
@@ -25,13 +25,19 @@ export const PlayN = () => {
         console.log(err.message);
       });
   }, []);
-
   return (
-    <div>    {
-      backvalue[0].playlist.map((i)=>(
-        <p className='backers' title='received'>{i}</p>
+    <div>   
+    {
+      backvalue.map(i=>(
+        <p className='backers' title='received'>{i.status}</p>
+      ))
+    } {
+      backvalue.map((i)=>(
+        i.playlist.map((j)=>(
+          <p className='backers' title='received'>{j}</p>
+        ))
       ))
     }
-    </div>
+    </div>    
   );
 };
