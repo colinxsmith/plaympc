@@ -2,6 +2,7 @@ import React from 'react';
 import './PlayN.css'
 export const PlayN = () => {
   const [backvalue, setB] = React.useState([]);
+  const [data, setData] = React.useState(undefined);
   React.useEffect(() => {
     const headers = {
       'Content-Type': 'application/json',
@@ -25,19 +26,35 @@ export const PlayN = () => {
         console.log(err.message);
       });
   }, []);
+  const onOptionChangeHandler = (event) => {
+    setData(event.target.value);
+    console.log(
+      "User Selected Value - ",
+      event.target.value
+    );
+  };
   return (
-    <div>   
-    {
-      backvalue.map(i=>(
-        <p className='backers' title='received'>{i.status}</p>
-      ))
-    } {
-      backvalue.map((i)=>(
-        i.playlist.map((j)=>(
-          <p className='backers' title='received'>{j}</p>
-        ))
-      ))
-    }
-    </div>    
+    <div>
+      {
+        <center>
+          <select onChange={onOptionChangeHandler}>
+            <option>Please choose one option</option>
+            {
+              backvalue.map((i) => (
+                i.playlist
+                  .map((option, index) => {
+                    return (
+                      <option key={index}>
+                        {option}
+                      </option>
+                    );
+                  })
+              ))
+            }
+          </select>
+          <h3>You selected: {data} </h3>
+        </center>
+      }
+    </div>
   );
 };
