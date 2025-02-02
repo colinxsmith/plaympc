@@ -1,15 +1,15 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = () => {
+export const PlayN = ({data,setData,url}) => {
+  const setvalue=url.includes('dave');
+  console.log(setvalue)
   const [backvalue, setB] = React.useState([]);
-  const [data, setData] = React.useState(undefined);
   React.useEffect(() => {
     const headers = {
       'Content-Type': 'application/json',
       'Access-Control-Expose-Headers': '*',
       'Access-Control-Allow-Origin': '*'
     }
-    const url = `http://192.168.0.37:1310`;
     fetch(url, {
       mode: 'cors'
     },
@@ -25,15 +25,15 @@ export const PlayN = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, [url]);
   const onOptionChangeHandler = (event) => {
     setData(event.target.value);
     console.log(
-      event.target,
       "User Selected Value - ",
       event.target.value
     );
   };
+  if(!setvalue){
   return (
     <div className='base'>
       {
@@ -46,7 +46,7 @@ export const PlayN = () => {
                   .map((option, index) => {
                     return (
                       <option key={index}>
-                        {[index,option]}
+                        {option}
                       </option>
                     );
                   })
@@ -63,4 +63,15 @@ export const PlayN = () => {
       }
     </div>
   );
+}else{
+  return (
+    <div className='base'>
+      {
+        backvalue.map(i=>(
+          <p className='backers'>New status: {i.status}</p>
+        ))
+      }
+    </div>
+  );
+}
 };
