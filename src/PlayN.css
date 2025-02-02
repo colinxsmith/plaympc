@@ -1,7 +1,15 @@
 p.backers{
-    text-align: center;
+    text-align: start;
     text-wrap: auto;
     width: 75%;
     color: rgb(194, 15, 59);
-    font-size: xx-large;
+    font-size: larger;
+}
+div.base{
+    background-color: #bbc8ce;
+}
+select,h3.sss{
+    font-size: larger;
+    color: blue;
+    width: 60%;
 }

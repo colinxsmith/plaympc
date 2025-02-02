@@ -29,31 +29,37 @@ export const PlayN = () => {
   const onOptionChangeHandler = (event) => {
     setData(event.target.value);
     console.log(
+      event.target,
       "User Selected Value - ",
       event.target.value
     );
   };
   return (
-    <div>
+    <div className='base'>
       {
         <center>
-          <select onChange={onOptionChangeHandler}>
-            <option>Please choose one option</option>
+          <select  className='sss'  onChange={onOptionChangeHandler}>
+            <option>Choose a program</option>
             {
               backvalue.map((i) => (
                 i.playlist
                   .map((option, index) => {
                     return (
                       <option key={index}>
-                        {option}
+                        {[index,option]}
                       </option>
                     );
                   })
               ))
             }
           </select>
-          <h3>You selected: {data} </h3>
+          <h3 className='sss'>You selected program {data}</h3>
         </center>
+      }
+      {
+        backvalue.map(i=>(
+          <p className='backers'>Current status: {i.status}</p>
+        ))
       }
     </div>
   );
