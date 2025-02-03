@@ -68,7 +68,7 @@ export const PlayN = ({data,setData,url,seek,setSeek}) => {
 <center>
 <div>
 <label for="seek">Seek</label>
-  <input onChange={getSeek} type="range" id="seek" name="position"  step="any" min="0" max="100" />
+  <input onChange={getSeek} type="range" id="seek"  value="0" step="any" min="0" max="100" />
   <h3 className='sss'>Play from {seek}%</h3>
 </div>
 </center>
