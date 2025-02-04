@@ -9,14 +9,15 @@ export function App() {
   var prog=-1;
   console.log(seek);
   if(seek===undefined){
-    seek=0;
+    seek=-1;
   }
   if(data!==undefined){
     console.log(data)
     prog=data.split(' ')[0];
   }
   console.log(prog)
-  const urlpart=prog===-1?'?seek='+seek:'?value='+prog+'&seek='+seek;
+  var urlpart=prog===-1?'?seek='+seek:'?value='+prog+'&seek='+seek;
+  if(seek===-1)urlpart=prog===-1?'':'?value='+prog;
   console.log(urlpart)
   return (
     <div className='App'>
