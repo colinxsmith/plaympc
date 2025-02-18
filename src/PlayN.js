@@ -69,13 +69,13 @@ export const PlayN = ({data,setData,url,seek,setSeek}) => {
 <div>
 <label for="seek">Seek</label>
   <input onChange={getSeek} type="range" id="seek"  value={0} step="any" min="0" max="100" />
-  <h3 className='sss'>Play from {seek}%</h3>
+  <h3 className='sss'>Play from {seek<=0?"start":seek+"%"}</h3>
 </div>
 </center>
       }
       {
         backvalue.map(i=>(
-          <p className='backers'>Current status: {i.status}</p>
+          <p className='backers'>Current status:<br></br>{i.status}</p>
         ))
       }
     </div>
@@ -85,7 +85,7 @@ export const PlayN = ({data,setData,url,seek,setSeek}) => {
     <div className='base'>
       {
         backvalue.map(i=>(
-          <p className='backers'>New status: {i.status}</p>
+          <p className='backers'>New status:<br></br>{i.status}</p>
         ))
       }
     </div>
