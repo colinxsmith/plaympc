@@ -3,21 +3,35 @@ import './App.css';
 import React from 'react';
 
 export function App() {
-  const [data, setData] = React.useState(undefined);
-  var [seek, setSeek] = React.useState(undefined);
+  const [programnumber, setProgramNumber] = React.useState('-1');
+  const [mp3number,setMp3Number]=React.useState(undefined);
+  var [deletenumber,setDeleteNumber]=React.useState('-1');
+  const [rescan,setRescan]=React.useState(false);
+  var [seek, setSeek] = React.useState('-1');
   const url = `http://192.168.0.37:1310`;
   var prog=-1;
-  console.log(seek);
   if(seek===undefined){
     seek=-1;
   }
-  if(data!==undefined){
-    console.log(data)
-    prog=data.split(' ')[0];
+  if(programnumber!==undefined){
+    console.log(programnumber)
+    prog=programnumber.split(' ')[0];
   }
-  console.log(prog)
-  var urlpart=prog===-1?'?seek='+seek:'?value='+prog+'&seek='+seek;
-  if(seek===-1)urlpart=prog===-1?'':'?value='+prog;
+  if(deletenumber!=='-1')deletenumber  =deletenumber.split(' ')[0];
+  console.log(seek,prog,mp3number,deletenumber,rescan)
+  var urlpart='?';
+  if(prog!==-1)urlpart+='value='+prog;
+  else if(seek!==-1)urlpart+='seek='+seek;
+  else if(mp3number!==undefined)urlpart+='mp3='+mp3number;
+  else if(deletenumber!=='-1')urlpart+='remove'+deletenumber;
+  else if(rescan)urlpart+='rescan';
+
+  if(prog!==-1 && !urlpart.includes('value'))urlpart+='&value='+prog;
+  if(seek!==-1 && !urlpart.includes('seek'))urlpart+='&seek='+seek;
+  if(mp3number!==undefined && !urlpart.includes('mp3'))urlpart+='&mp3='+mp3number;
+  if(deletenumber!=='-1' )urlpart+='&remove='+deletenumber;
+  if(rescan )urlpart+='&rescan';
+
   console.log(urlpart)
   return (
     <div className='App'>
@@ -26,8 +40,8 @@ export function App() {
           <img src="http://192.168.0.37:1234/ak.jpg" className="App-logo" alt="logo" ></img>
         </div>
       </header>
-      <PlayN data={data} setData={setData} seek={seek} setSeek={setSeek} url={url}></PlayN>
-      <PlayN data={data} setData={setData} url={url+'/dave'+urlpart}></PlayN>
+      <PlayN deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} rescan={rescan} setRescan={setRescan} mp3number={mp3number}  setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url}></PlayN>
+      <PlayN deletenumber={deletenumber} setDeleteNumber={setDeleteNumber}  rescan={rescan} setRescan={setRescan}  mp3number={mp3number}  setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url+'/dave'+urlpart}></PlayN>
     </div>
 
   );
