@@ -12,6 +12,13 @@ select,h3.sss{
     font-size: larger;
     color: blue;
     width: 60%;
+    background-color: lawngreen;;
+}
+select.sssd,h3.sssd{
+    font-size: larger;
+    color: blue;
+    width: 50%;
+    background-color: rgb(252, 80, 0);;
 }
 button.update{
     background-color: blue;
@@ -55,3 +62,4 @@ label {
   input.deleteb{
     width:5%;
   }
+  
