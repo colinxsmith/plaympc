@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = ({ deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
+export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
   const setvalue = url.includes('dave');
 
   console.log(setvalue)
@@ -60,6 +60,9 @@ export const PlayN = ({ deletenumber, setDeleteNumber, rescan, setRescan, mp3num
     console.log('rescan')
     setRescan(true);
   };
+  const fixserver = (event) => {
+    setFix(true);
+  };
   if (!setvalue) {
     return (
       <div className='base'>
@@ -108,15 +111,22 @@ export const PlayN = ({ deletenumber, setDeleteNumber, rescan, setRescan, mp3num
             <div>
               <label for="seek">Seek</label>
               <input onChange={getSeek} type="range" id="seek" value={seek} step="any" min="0" max="100" />
-              <h3 className='sss'>Play from {seek <= 0 ? "the start" : seek + "%"}</h3>
+              <h3 className='sss'>Playing from {seek <= 0 ? "the start" : seek + "%"}</h3>
             </div>
           </center>
         }
 
-        {
+{
           <div>
             <button className='update' defaultValue={false} onClick={reScan}>Update</button>
           </div>
+        }
+        {
+          <center>
+          <div>
+            <button className='fix' defaultValue={false} onClick={fixserver}>Fix Server Problems</button>
+          </div>
+          </center>
         }
 
 {
