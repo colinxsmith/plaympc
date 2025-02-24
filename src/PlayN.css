@@ -1,9 +1,19 @@
 p.backers{
-    text-align: start;
-    text-wrap: auto;
-    width: 75%;
-    color: rgb(194, 15, 59);
-    font-size: larger;
+  text-align: start;
+  text-wrap: auto;
+  width: 75%;
+  color: rgb(194, 15, 59);
+  font-size: larger;
+}
+p.serverlog{
+  font:
+    1rem 'Fira Sans',
+    sans-serif;
+    font-size:14px;
+    color: rgb(88, 46, 211);
+  text-align:start;
+  width: 70%;
+  background-color: burlywood;
 }
 div.base{
     background-color: #bbc8ce;
@@ -62,16 +72,16 @@ button.fix{
     }
 }
 @media (prefers-reduced-motion: no-preference) {
-  button.fix {
+  button.fix{
     animation: dave infinite 20s linear;
   }
 }
 @keyframes dave {
   from {
-    transform: rotate(0deg);
+    transform: rotate(360deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(0deg);
   }
 }
 label {

@@ -169,6 +169,13 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
             <p className='backers'>{i.update?'Backup status:':''}<br></br>{i.update}</p>
           ))
         }
+        {
+          backvalue.map(i => (
+            <center>
+            <p className='serverlog'>{i.serverstart}</p>
+            </center>
+          ))
+        }
       </div>
     );
   }
