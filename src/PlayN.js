@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
+export const PlayN = ({ insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
   const setvalue = url.includes('dave');
 
   console.log(setvalue)
@@ -20,7 +20,7 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
       })
       .then((rs) => rs.json())
       .then((ss) => {
-        console.log(ss);
+        console.log(ss[0]);
         setB(ss);
       }
       )
@@ -39,6 +39,13 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
     setDeleteNumber(event.target.value);
     console.log(
       "Delete - ",
+      event.target.value
+    );
+  };
+  const insertSelect = (event) => {
+    setInsert(event.target.value);
+    console.log(
+      "insert - ",
       event.target.value
     );
   };
@@ -83,7 +90,7 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
                 ))
               }
             </select>
-            <h3 className='sss'>{mp3number==='-1'?'Nothing selected':'You selected mp3 file '+mp3number}</h3>
+            <h3 className='sss'>{mp3number === '-1' ? 'Nothing selected' : 'You selected mp3 file ' + mp3number}</h3>
           </center>
         }
         {
@@ -116,20 +123,20 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
           </center>
         }
 
-{
+        {
           <div>
             <button className='update' defaultValue={false} onClick={reScan}>Update</button>
           </div>
         }
         {
           <center>
-          <div>
-            <button className='fix' defaultValue={false} onClick={fixserver}>Fix Server Problems</button>
-          </div>
+            <div>
+              <button className='fix' defaultValue={false} onClick={fixserver}>Fix Server Problems</button>
+            </div>
           </center>
         }
 
-{
+        {
           backvalue.map(i => (
             <p className='backers'>Current status:<br></br>{i.status}</p>
           ))
@@ -154,6 +161,26 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
             <h3 className='sssd'>{deletenumber === '-1' ? 'Nothing selected' : deletenumber}</h3>
           </center>
         }
+        {
+          <center >
+            <select className='sss' onChange={insertSelect}>
+              <option>Choose a music file to insert</option>
+              {
+                backvalue.map(i => (
+                  i.songs&&i.songs
+                    .map((track, index) => {
+                      return (
+                        <option key={index}>
+                          {track}
+                        </option>
+                      );
+                    })
+                ))
+              }
+            </select>
+            <h3 className='sss'>{insert === '-1' ? 'Nothing selected' : insert}</h3>
+          </center>
+        }
       </div>
     );
   } else {
@@ -166,13 +193,13 @@ export const PlayN = ({ fix,setFix,deletenumber, setDeleteNumber, rescan, setRes
         }
         {
           backvalue.map(i => (
-            <p className='backers'>{i.update?'Backup status:':''}<br></br>{i.update}</p>
+            <p className='backers'>{i.update ? 'Backup status:' : ''}<br></br>{i.update}</p>
           ))
         }
         {
           backvalue.map(i => (
             <center>
-            <p className='serverlog'>{i.serverstart}</p>
+              <p className='serverlog'>{i.serverstart}</p>
             </center>
           ))
         }
