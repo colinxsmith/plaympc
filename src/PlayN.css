@@ -18,18 +18,24 @@ p.serverlog{
 div.base{
     background-color: #bbc8ce;
 }
-select,h3.sss{
+div.baseb{
+    background-color: #7ea77e;
+}
+select,h3{
     font-size: larger;
+    text-align: center;
     color: blue;
     width: 60%;
-    background-color: lawngreen;;
-    border-radius: 5% 5% 1% 1%;
+    background-color: lawngreen;
+    border-radius: 50% 50% 1% 1%;
 }
 select.sssd,h3.sssd{
-    font-size: larger;
-    color: blue;
     width: 50%;
     background-color: rgb(252, 80, 0);;
+}
+select.sssst,h3.sssst{
+    width: 50%;
+    background-color:burlywood;
 }
 button.update{
     background-color: blue;

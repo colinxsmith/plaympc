@@ -1,6 +1,6 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = ({ insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
+export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
   const setvalue = url.includes('dave');
 
   console.log(setvalue)
@@ -46,6 +46,13 @@ export const PlayN = ({ insert, setInsert, setFix, deletenumber, setDeleteNumber
     setInsert(event.target.value);
     console.log(
       "insert - ",
+      event.target.value
+    );
+  };
+  const stationSelect = (event) => {
+    setStation(event.target.value);
+    console.log(
+      "station - ",
       event.target.value
     );
   };
@@ -181,11 +188,31 @@ export const PlayN = ({ insert, setInsert, setFix, deletenumber, setDeleteNumber
             <h3 className='sss'>{insert === '-1' ? 'Nothing selected' : insert}</h3>
           </center>
         }
+        {
+          <center >
+            <select className='sssst' onChange={stationSelect}>
+              <option>Choose a radio station to insert</option>
+              {
+                backvalue.map(i => (
+                  i.stations&&i.stations
+                    .map((stat, index) => {
+                      return (
+                        <option key={index}>
+                          {stat}
+                        </option>
+                      );
+                    })
+                ))
+              }
+            </select>
+            <h3 className='sssst'>{station === '-1' ? 'Nothing selected' : station}</h3>
+          </center>
+        }
       </div>
     );
   } else {
     return (
-      <div className='base'>
+      <div className='baseb'>
         {
           backvalue.map(i => (
             <p className='backers'>New status:<br></br>{i.status}</p>
