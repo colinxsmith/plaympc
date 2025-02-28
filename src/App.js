@@ -23,11 +23,13 @@ export function App() {
   if (deletenumber !== '-1') deletenumber = deletenumber.split(' ')[0];
   console.log(seek, prog, mp3number, deletenumber, rescan, fix)
   var urlpart = '?';
+  var station1=station.replace('&','%26')
+  station1=station1.replace('!','%21')
   if (prog !== '-1') urlpart += 'value=' + prog;
   else if (seek !== -1) urlpart += 'seek=' + seek;
   else if (mp3number !== '-1') urlpart += 'mp3=' + mp3number;
   else if (insert !== '-1') urlpart += 'insert=' + insert;
-  else if (station !== '-1') urlpart += 'station=' + station;
+  else if (station !== '-1') urlpart += 'station=' + station1;
   else if (deletenumber !== '-1') urlpart += 'remove' + deletenumber;
   else if (rescan) urlpart += 'update';
   else if (fix) urlpart += 'fix';
@@ -39,8 +41,6 @@ export function App() {
   if (rescan) urlpart += '&update';
   if (fix) urlpart += '&fix';
   if (insert !== '-1' && !urlpart.includes('insert')) urlpart += '&insert=' + insert;
-  var station1=station.replace('&','%26')
-  station1=station1.replace('!','%21')
   if (station !== '-1' && !urlpart.includes('station')) urlpart += '&station=' + station1;
 
   console.log(urlpart)
