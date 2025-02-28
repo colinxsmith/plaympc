@@ -103,7 +103,7 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
         {
           <center>
             <select className='sss' onChange={programSelect}>
-              <option>Choose a program</option>
+              <option>Choose a program or music file</option>
               {
                 backvalue.map((i) => (
                   i.playlist

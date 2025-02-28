@@ -39,7 +39,9 @@ export function App() {
   if (rescan) urlpart += '&update';
   if (fix) urlpart += '&fix';
   if (insert !== '-1' && !urlpart.includes('insert')) urlpart += '&insert=' + insert;
-  if (station !== '-1' && !urlpart.includes('station')) urlpart += '&station=' + station.replace('&','%26');
+  var station1=station.replace('&','%26')
+  station1=station1.replace('!','%21')
+  if (station !== '-1' && !urlpart.includes('station')) urlpart += '&station=' + station1;
 
   console.log(urlpart)
   return (
