@@ -13,9 +13,6 @@ export function App() {
   var [seek, setSeek] = React.useState('-1');
   const url = `http://192.168.0.37:1310`;
   var prog = '-1';
-  if (seek === undefined) {
-    seek = -1;
-  }
   if (programnumber !== -1) {
     console.log(programnumber)
     prog = programnumber.split(' ')[0];
@@ -28,7 +25,7 @@ export function App() {
   var insert1=insert.replace('&','%26')
   insert1=insert1.replace('!','%21')
   if (prog !== '-1') urlpart += 'value=' + prog;
-  else if (seek !== -1) urlpart += 'seek=' + seek;
+  else if (seek !== '-1') urlpart += 'seek=' + seek;
   else if (mp3number !== '-1') urlpart += 'mp3=' + mp3number;
   else if (insert !== '-1') urlpart += 'insert=' + insert1;
   else if (station !== '-1') urlpart += 'station=' + station1;
@@ -37,7 +34,7 @@ export function App() {
   else if (fix) urlpart += 'fix';
 
   if (prog !== '-1' && !urlpart.includes('value')) urlpart += '&value=' + prog;
-  if (seek !== -1 && !urlpart.includes('seek')) urlpart += '&seek=' + seek;
+  if (seek !== '-1' && !urlpart.includes('seek')) urlpart += '&seek=' + seek;
   if (mp3number !== '-1' && !urlpart.includes('mp3')) urlpart += '&mp3=' + mp3number;
   if (deletenumber !== '-1') urlpart += '&remove=' + deletenumber;
   if (rescan) urlpart += '&update';
