@@ -4,6 +4,7 @@ import React from 'react';
 
 export function App() {
   const [programnumber, setProgramNumber] = React.useState('-1');
+  const [record, setRecord] = React.useState('-1');
   const [insert, setInsert] = React.useState('-1');
   const [station, setStation] = React.useState('-1');
   const [fix, setFix] = React.useState(false);
@@ -18,13 +19,14 @@ export function App() {
     prog = programnumber.split(' ')[0];
   }
   if (deletenumber !== '-1') deletenumber = deletenumber.split(' ')[0];
-  console.log(seek, prog, mp3number, deletenumber, rescan, fix)
+  console.log(seek, prog, mp3number, deletenumber, rescan, fix,record)
   var urlpart = '?';
-  var station1=station.replace('&','%26')
-  station1=station1.replace('!','%21')
-  var insert1=insert.replace('&','%26')
-  insert1=insert1.replace('!','%21')
+  var station1 = station.replace('&', '%26')
+  station1 = station1.replace('!', '%21')
+  var insert1 = insert.replace('&', '%26')
+  insert1 = insert1.replace('!', '%21')
   if (prog !== '-1') urlpart += 'value=' + prog;
+  else if (record !== '-1') urlpart += 'record=' + record;
   else if (seek !== '-1') urlpart += 'seek=' + seek;
   else if (mp3number !== '-1') urlpart += 'mp3=' + mp3number;
   else if (insert !== '-1') urlpart += 'insert=' + insert1;
@@ -34,6 +36,7 @@ export function App() {
   else if (fix) urlpart += 'fix';
 
   if (prog !== '-1' && !urlpart.includes('value')) urlpart += '&value=' + prog;
+  if (record !== '-1' && !urlpart.includes('record')) urlpart += '&record=' + record;
   if (seek !== '-1' && !urlpart.includes('seek')) urlpart += '&seek=' + seek;
   if (mp3number !== '-1' && !urlpart.includes('mp3')) urlpart += '&mp3=' + mp3number;
   if (deletenumber !== '-1') urlpart += '&remove=' + deletenumber;
@@ -50,8 +53,8 @@ export function App() {
           <img src="http://192.168.0.37:1234/ak.jpg" className="App-logo" alt="logo" ></img>
         </div>
       </header>
-      <PlayN station={station} setStation={setStation} insert={insert} setInsert={setInsert} deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} setFix={setFix} rescan={rescan} setRescan={setRescan} mp3number={mp3number} setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url}></PlayN>
-      <PlayN station={station} setStation={setStation} insert={insert} setInsert={setInsert} deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} setFix={setFix} rescan={rescan} setRescan={setRescan} mp3number={mp3number} setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url + '/dave' + urlpart}></PlayN>
+      <PlayN record={record} setRecord={setRecord} station={station} setStation={setStation} insert={insert} setInsert={setInsert} deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} setFix={setFix} rescan={rescan} setRescan={setRescan} mp3number={mp3number} setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url}></PlayN>
+      <PlayN record={record} setRecord={setRecord} station={station} setStation={setStation} insert={insert} setInsert={setInsert} deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} setFix={setFix} rescan={rescan} setRescan={setRescan} mp3number={mp3number} setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url + '/dave' + urlpart}></PlayN>
     </div>
 
   );

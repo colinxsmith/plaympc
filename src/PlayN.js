@@ -1,10 +1,11 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
+export const PlayN = ({ record, setRecord, station, setStation, insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
   const setvalue = url.includes('dave');
 
   console.log(setvalue)
   const [backvalue, setB] = React.useState([]);
+  const [nameset, setNameset] = React.useState([]);
   console.log(backvalue)
   React.useEffect(() => {
     const headers = {
@@ -34,6 +35,11 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
       "User Selected Value - ",
       event.target.value
     );
+  };
+  const recordSubmit = (event) => {
+    event.preventDefault();
+    setRecord(nameset);
+    console.log(`record time: ${nameset}`)
   };
   const deleteSelect = (event) => {
     setDeleteNumber(event.target.value);
@@ -174,7 +180,7 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
               <option>Choose a music file to insert</option>
               {
                 backvalue.map(i => (
-                  i.songs&&i.songs
+                  i.songs && i.songs
                     .map((track, index) => {
                       return (
                         <option key={index}>
@@ -194,7 +200,7 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
               <option>Choose a radio station to insert</option>
               {
                 backvalue.map(i => (
-                  i.stations&&i.stations
+                  i.stations && i.stations
                     .map((stat, index) => {
                       return (
                         <option key={index}>
@@ -208,16 +214,26 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
             <h3 className='sssst'>{station === '-1' ? 'Nothing selected' : station}</h3>
           </center>
         }
+        {
+          <center>
+            <form  className='butty'  onSubmit={recordSubmit}  >
+              <label className='butty' >Choose recording time (secs):
+                <input onChange={(e) => setNameset(e.target.value)} type="text" />
+              </label>
+              <input className='butty' type="submit" value={'Record'}/>
+            </form>
+          </center>
+        }
       </div>
     );
   } else {
     return (
       <div className='baseb'>
-        {
-          backvalue.map(i => (
-            <p className='backers'>New status:<br></br>{i.status}</p>
-          ))
-        }
+      {
+        backvalue.map(i => (
+          <p className='backers'>New status:<br></br>{i.status}</p>
+        ))
+      }
         {
           backvalue.map(i => (
             <p className='backers'>{i.update ? 'Backup status:' : ''}<br></br>{i.update}</p>
@@ -227,6 +243,13 @@ export const PlayN = ({station,setStation, insert, setInsert, setFix, deletenumb
           backvalue.map(i => (
             <center>
               <p className='serverlog'>{i.serverstart}</p>
+            </center>
+          ))
+        }
+        {
+          backvalue.map(i => (
+            <center>
+              <p style=  {{width: '50%',color:'green'}}  className='serverlog'>{i.report_record}</p>
             </center>
           ))
         }

@@ -15,6 +15,17 @@ p.serverlog{
   width: 70%;
   background-color: burlywood;
 }
+input.butty{   
+  background-color: deepskyblue;
+}
+  
+label.butty{  
+  font-size: smaller;
+  }
+form.butty{  
+  background-color: gainsboro;
+      width: min-content;
+    }
 div.base{
     background-color: #bbc8ce;
 }
