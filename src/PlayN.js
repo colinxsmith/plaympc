@@ -224,6 +224,13 @@ export const PlayN = ({ record, setRecord, station, setStation, insert, setInser
             </form>
           </center>
         }
+        {
+          backvalue.map(i => (
+            <center>
+              <p style=  {{width: '50%',color:'green'}}  className='serverlog'>{i.report_record}</p>
+            </center>
+          ))
+        }
       </div>
     );
   } else {
