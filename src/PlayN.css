@@ -16,13 +16,21 @@ p.serverlog{
   background-color: burlywood;
 }
 input.butty{   
-  background-color: deepskyblue;
+  background-color: rgb(236, 74, 123);
+  height: 50px;
+  border-radius: 80%;
+  width: 80%;
+  font-size: 10px;
+  &:hover {
+    background-color: rgb(235, 216, 131);
+  }
 }
   
 label.butty{  
   font-size: smaller;
   }
 form.butty{  
+  border-radius: 10px;
   background-color: gainsboro;
       width: min-content;
     }
@@ -117,8 +125,8 @@ label {
   }
   
   input {
-    margin: 0.4rem;
-    width:75%;
+    margin: 10%;
+    width:60%;
   }
   input.deleteb{
     width:5%;

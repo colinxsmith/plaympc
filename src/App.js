@@ -19,7 +19,7 @@ export function App() {
     prog = programnumber.split(' ')[0];
   }
   if (deletenumber !== '-1') deletenumber = deletenumber.split(' ')[0];
-  console.log(seek, prog, mp3number, deletenumber, rescan, fix,record)
+  console.log(seek, prog, mp3number, deletenumber, rescan, fix, record)
   var urlpart = '?';
   var station1 = station.replace('&', '%26')
   station1 = station1.replace('!', '%21')
@@ -39,9 +39,9 @@ export function App() {
   if (record !== '-1' && !urlpart.includes('record')) urlpart += '&record=' + record;
   if (seek !== '-1' && !urlpart.includes('seek')) urlpart += '&seek=' + seek;
   if (mp3number !== '-1' && !urlpart.includes('mp3')) urlpart += '&mp3=' + mp3number;
-  if (deletenumber !== '-1') urlpart += '&remove=' + deletenumber;
-  if (rescan) urlpart += '&update';
-  if (fix) urlpart += '&fix';
+  if (deletenumber !== '-1' && !urlpart.includes('remove')) urlpart += '&remove=' + deletenumber;
+  if (rescan && !urlpart.includes('update')) urlpart += '&update';
+  if (fix && !urlpart.includes('fix')) urlpart += '&fix';
   if (insert !== '-1' && !urlpart.includes('insert')) urlpart += '&insert=' + insert1;
   if (station !== '-1' && !urlpart.includes('station')) urlpart += '&station=' + station1;
 
