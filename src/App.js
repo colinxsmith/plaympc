@@ -31,7 +31,7 @@ export function App() {
   else if (mp3number !== '-1') urlpart += 'mp3=' + mp3number;
   else if (insert !== '-1') urlpart += 'insert=' + insert1;
   else if (station !== '-1') urlpart += 'station=' + station1;
-  else if (deletenumber !== '-1') urlpart += 'remove' + deletenumber;
+  else if (deletenumber !== '-1') urlpart += 'remove=' + deletenumber;
   else if (rescan) urlpart += 'update';
   else if (fix) urlpart += 'fix';
 
