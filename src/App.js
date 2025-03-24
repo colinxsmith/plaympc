@@ -23,8 +23,10 @@ export function App() {
   var urlpart = '?';
   var station1 = station.replace('&', '%26')
   station1 = station1.replace('!', '%21')
+  station1 = station1.replace('#', '%23')
   var insert1 = insert.replace('&', '%26')
   insert1 = insert1.replace('!', '%21')
+  insert1 = insert1.replace('#', '%23')
   if (prog !== '-1') urlpart += 'value=' + prog;
   else if (record !== '-1') urlpart += 'record=' + record;
   else if (seek !== '-1') urlpart += 'seek=' + seek;
