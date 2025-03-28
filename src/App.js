@@ -24,15 +24,17 @@ export function App() {
   var station1 = station.replace('&', '%26')
   station1 = station1.replace('!', '%21')
   station1 = station1.replace('#', '%23')
+  station1 = station1.replace('/', '%47')
   station1 = station1.replace(':', '%58')
   station1 = station1.replace(';', '%59')
   var insert1 = insert.replace('&', '%26')
   insert1 = insert1.replace('!', '%21')
   insert1 = insert1.replace('#', '%23')
+  insert1 = insert1.replace('/', '%47')
   insert1 = insert1.replace(':', '%58')
   insert1 = insert1.replace(';', '%59')
   
-  if insert1 = insert1.replace('#', '%23') prog !== '-1') urlpart += 'value=' + prog;
+  if (prog !== '-1') urlpart += 'value=' + prog;
   else if (record !== '-1') urlpart += 'record=' + record;
   else if (seek !== '-1') urlpart += 'seek=' + seek;
   else if (mp3number !== '-1') urlpart += 'mp3=' + mp3number;
