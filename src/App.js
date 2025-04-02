@@ -25,7 +25,7 @@ export function App() {
   station1 = station1.replace('!', '%21')
   station1 = station1.replace('#', '%23')
  // station1 = station1.replace('/', '%47')
-  station1 = station1.replace(':', '%58')
+  //station1 = station1.replace(':', '%58')
   station1 = station1.replace(';', '%59')
   var insert1 = insert.replace('&', '%26')
   insert1 = insert1.replace('!', '%21')
