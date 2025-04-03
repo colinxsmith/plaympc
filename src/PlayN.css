@@ -34,6 +34,21 @@ form.butty{
   background-color: gainsboro;
       width: min-content;
     }
+    input.mover{   
+      background-color: rgb(236, 74, 123);
+      &:hover {
+        background-color: rgb(235, 216, 131);
+      }
+    }
+      
+    label.mover{  
+      font-size: smaller;
+      }
+    form.mover{  
+      border-radius: 10px;
+      background-color: gainsboro;
+          width: 240px;
+        }
 div.base{
     background-color: #bbc8ce;
 }
@@ -132,4 +147,6 @@ label {
     width:5%;
   }
   
-  
+  input.movet{
+    width:20px;
+  }

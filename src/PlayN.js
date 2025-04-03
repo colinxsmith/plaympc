@@ -1,11 +1,13 @@
 import React from 'react';
 import './PlayN.css'
-export const PlayN = ({ record, setRecord, station, setStation, insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
+export const PlayN = ({ move1,setMove1,move2,setMove2,record, setRecord, station, setStation, insert, setInsert, setFix, deletenumber, setDeleteNumber, rescan, setRescan, mp3number, setMp3Number, programnumber, setProgramNumber, url, seek, setSeek }) => {
   const setvalue = url.includes('dave');
 
   console.log(setvalue)
   const [backvalue, setB] = React.useState([]);
   const [nameset, setNameset] = React.useState([]);
+  const [move1set, setMove1set] = React.useState([]);
+  const [move2set, setMove2set] = React.useState([]);
   console.log(backvalue)
   React.useEffect(() => {
     const headers = {
@@ -40,6 +42,11 @@ export const PlayN = ({ record, setRecord, station, setStation, insert, setInser
     event.preventDefault();
     setRecord(nameset);
     console.log(`record time: ${nameset}`)
+  };
+  const moveSubmit = (event) => {
+    event.preventDefault();
+    setMove1(move1set); setMove2(move2set);
+    console.log(`move2: ${move1set},${move2set}`)
   };
   const deleteSelect = (event) => {
     setDeleteNumber(event.target.value);
@@ -215,13 +222,21 @@ export const PlayN = ({ record, setRecord, station, setStation, insert, setInser
           </center>
         }
         {
-          <center>
-            <form  className='butty'  onSubmit={recordSubmit}  >
-              <label className='butty' >Choose recording time (secs):
-                <input onChange={(e) => setNameset(e.target.value)} type="text" />
+          <center >
+            <p style={{display:'inline-flex',backgroundColor:'cadetblue',color:'cadetblue'}}>
+          <form  className='butty'  onSubmit={recordSubmit}  >
+            <label className='butty' >Choose recording time (secs):
+              <input onChange={(e) => setNameset(e.target.value)} type="text" />
+            </label>
+            <input className='butty' type="submit" value={'Record'}/>
+          </form><text>colin</text>
+            <form  className='mover' onSubmit={moveSubmit}   >
+              <label className='mover' style={{display:'inline-flex'}}>Move track
+              <input onChange={(e) => setMove1set(e.target.value)} type="text" className='movet'/>to position
+              <input  onChange={(e) => setMove2set(e.target.value)} type="text" className='movet'/>
               </label>
-              <input className='butty' type="submit" value={'Record'}/>
-            </form>
+              <input className='mover' type="submit" value={'Move'}/>
+            </form></p>
           </center>
         }
         {
