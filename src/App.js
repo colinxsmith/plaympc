@@ -34,7 +34,7 @@ export function App() {
   insert1 = insert1.replace('!', '%21')
   insert1 = insert1.replace('#', '%23')
 //  insert1 = insert1.replace('/', '%47')
-  insert1 = insert1.replace(':', '%58')
+  //insert1 = insert1.replace(':', '%58')
   insert1 = insert1.replace(';', '%59')
   
   if (prog !== '-1') urlpart += 'value=' + prog;
