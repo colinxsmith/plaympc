@@ -64,7 +64,7 @@ export function App() {
     <div className='App'>
       <header>
         <div className="App-header">
-          <img src="http://192.168.0.37:1234/ak.jpg" className="App-logo" alt="logo" ></img>
+          <img src="http://192.168.0.37/ak.jpg" className="App-logo" alt="logo" ></img>
         </div>
       </header>
       <PlayN move1={move1} setMove1={setMove1} move2={move2} setMove2={setMove2} record={record} setRecord={setRecord} station={station} setStation={setStation} insert={insert} setInsert={setInsert} deletenumber={deletenumber} setDeleteNumber={setDeleteNumber} setFix={setFix} rescan={rescan} setRescan={setRescan} mp3number={mp3number} setMp3Number={setMp3Number} programnumber={programnumber} setProgramNumber={setProgramNumber} seek={seek} setSeek={setSeek} url={url}></PlayN>

@@ -2,5 +2,5 @@
  rm -rf build
  npm run build
  zip  -r plaympc build
- scp plaympc.zip  pi@new64.local:~/mpcserver
+ scp plaympc.zip  pi@trixie64.local:~/mpcserver
  
